@@ -1,31 +1,16 @@
-= Transaction-error
-
-image:https://img.shields.io/badge/vert.x-3.9.5-purple.svg[link="https://vertx.io"]
-
-This application was generated using http://start.vertx.io
-
 == Building
 
-To launch your tests:
+To run your application please complete the Auth parameters in MainVerticle:
+
 ```
-./mvnw clean test
+mvn clean compile exec:java
 ```
 
-To package your application:
+The application should throw an Exception:
 ```
-./mvnw clean package
-```
-
-To run your application:
-```
-./mvnw clean compile exec:java
+Index cursor cannot have transaction state with values and without values simultaneously
 ```
 
-== Help
-
-* https://vertx.io/docs/[Vert.x Documentation]
-* https://stackoverflow.com/questions/tagged/vert.x?sort=newest&pageSize=15[Vert.x Stack Overflow]
-* https://groups.google.com/forum/?fromgroups#!forum/vertx[Vert.x User Group]
-* https://gitter.im/eclipse-vertx/vertx-users[Vert.x Gitter]
+This exception appears only for Neo4j 4.1.5-enterprise edition, it means that it works correctly on 4.1.5-community
 
 

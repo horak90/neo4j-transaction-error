@@ -23,7 +23,7 @@ public class MainVerticle extends AbstractVerticle {
 
   @Override
   public void start(Promise<Void> startPromise) {
-    Driver driver = GraphDatabase.driver("bolt://localhost:7687", AuthTokens.basic("neo4j", "2012-ble"));
+    Driver driver = GraphDatabase.driver("bolt://localhost:7687", AuthTokens.basic("neo4j", "YOUR-PASSWORD"));
 
     beginTransaction(driver)
       .flatMapCompletable(tx ->
