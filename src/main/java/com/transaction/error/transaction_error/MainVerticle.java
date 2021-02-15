@@ -29,10 +29,10 @@ public class MainVerticle extends AbstractVerticle {
       .flatMapCompletable(tx ->
           tx.query(new Query(SET_CONSTRAINT)).flatMapCompletable(r -> tx.commit())
       )
-      .andThen(Single.defer(() -> beginTransaction(driver)))
-      .flatMapCompletable(tx ->
-          tx.query(new Query(DELETE_DB)).flatMapCompletable(r -> tx.commit())
-      )
+//      .andThen(Single.defer(() -> beginTransaction(driver)))
+//      .flatMapCompletable(tx ->
+//          tx.query(new Query(DELETE_DB)).flatMapCompletable(r -> tx.commit())
+//      )
       .andThen(Single.defer(() -> beginTransaction(driver)))
       .flatMapCompletable(tx ->
           tx.query(new Query(CREATE_TEST_DATA))
